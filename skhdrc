@@ -1,74 +1,65 @@
-#!/usr/bin/env sh
-# -- Changing Window Focus --
+# general window management
+alt - e : yabai -m window --toggle split
+alt - r : yabai -m space --rotate 90
+alt - t : yabai -m window --toggle float
 
-# change window focus within space
+alt - d : yabai -m window --toggle zoom-parent
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+alt - x : yabai -m window --close
+
+# focus window
+alt - h : yabai -m window --focus west || yabai -m window --focus stack.prev || yabai -m window --focus stack.last
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
-alt - h : yabai -m window --focus west
-alt - l : yabai -m window --focus east
+alt - l : yabai -m window --focus east || yabai -m window --focus stack.next || yabai -m window --focus stack.first
 
-#change focus between external displays (left and right)
-alt - s: yabai -m display --focus west
-alt - g: yabai -m display --focus east
+# swap window
+alt + shift - h : yabai -m window --swap west
+alt + shift - j : yabai -m window --swap south
+alt + shift - k : yabai -m window --swap north
+alt + shift - l : yabai -m window --swap east
 
-# -- Modifying the Layout --
+# move window
+alt + ctrl - h : yabai -m window --warp west
+alt + ctrl - j : yabai -m window --warp south
+alt + ctrl - k : yabai -m window --warp north
+alt + ctrl - l : yabai -m window --warp east
 
-# rotate layout clockwise
-shift + alt - r : yabai -m space --rotate 270
+# send window to monitor and follow focus
+alt - 1 : yabai -m window --display 1
+alt - 2 : yabai -m window --display 2
+alt - 3 : yabai -m window --display 3
 
-# flip along y-axis
-shift + alt - y : yabai -m space --mirror y-axis
+# general application and control hotkeys
 
-# flip along x-axis
-shift + alt - x : yabai -m space --mirror x-axis
+meh - tab : yabai -m space --focus recent
 
-# toggle window float
-shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+meh - w : yabai -m space --focus 3;                      # yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "Safari") | .id');
+meh - r : yabai -m space --focus 2;                      # yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  | contains("Rider")) | .id');
 
+# open spotlight from an iOS remote session
 
-# -- Modifying Window Size --
+# meh - u : yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "OBS Studio") | .id'); skhd -k "meh-u";
+# meh - i : yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "OBS Studio") | .id'); skhd -k "meh-i";
+# meh - o : yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "OBS Studio") | .id'); skhd -k "meh-o";
 
-# maximize a window
-shift + alt - m : yabai -m window --toggle zoom-fullscreen
+# kill stream with meh-'
+meh - 0x27 : pkill OBS
 
-# balance out tree of windows (resize to occupy same area)
-shift + alt - e : yabai -m space --balance
+meh - backspace : pkill OBS; pmset displaysleepnow
 
-# -- Moving Windows Around --
+meh - a : yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "Audio Hijack") | .id');
+meh - s : yabai -m space --focus 1;                     # yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "iTerm2") | .id');
+meh - d : yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "Discord") | .id');
+# open common folders
+meh - g : ~/scripts/github-safari-action
+meh - h : yabai -m window --focus west || yabai -m window --focus stack.prev || yabai -m window --focus stack.last
+meh - j : yabai -m window --focus south
+meh - k : yabai -m window --focus north
+meh - l : yabai -m window --focus east || yabai -m window --focus stack.next || yabai -m window --focus stack.first
 
-# swap windows
-shift + alt - j : yabai -m window --swap south
-shift + alt - k : yabai -m window --swap north
-shift + alt - h : yabai -m window --swap west
-shift + alt - l : yabai -m window --swap east
+meh - m : yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "Music") | .id');
+meh - e : yabai -m space --focus 5; yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "Superhuman") | .id');
 
-# move window and split
-ctrl + alt - j : yabai -m window --warp south
-ctrl + alt - k : yabai -m window --warp north
-ctrl + alt - h : yabai -m window --warp west
-ctrl + alt - l : yabai -m window --warp east
-
-# move window to display left and right
-shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
-shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
-
-
-# move window to prev and next space
-shift + alt - p : yabai -m window --space prev;
-shift + alt - n : yabai -m window --space next;
-
-# move window to space #
-shift + alt - 1 : yabai -m window --space 1;
-shift + alt - 2 : yabai -m window --space 2;
-shift + alt - 3 : yabai -m window --space 3;
-shift + alt - 4 : yabai -m window --space 4;
-shift + alt - 5 : yabai -m window --space 5;
-shift + alt - 6 : yabai -m window --space 6;
-shift + alt - 7 : yabai -m window --space 7;
-
-# -- Starting/Stopping/Restarting Yabai --
-
-# stop/start/restart yabai
-ctrl + alt - q : brew services stop yabai
-ctrl + alt - s : brew services start yabai
-ctrl + alt - r : brew services restart yabai
+#meh - 0x2C : warpd --hint2
