@@ -68,4 +68,8 @@ meh - e : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (
 meh - g : ~/scripts/github-safari-action
 
 # manage yabai
-meh - r: yabai --restart-service
+meh - r : yabai --restart-service
+
+# change layout
+meh - 1 : ~/.config/yabai/rules/default && ~/.config/yabai/rules/default apply
+meh - 2 : ~/.config/yabai/rules/streaming && ~/.config/yabai/rules/streaming apply
