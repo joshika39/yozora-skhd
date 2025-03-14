@@ -58,11 +58,12 @@ meh - 0x27 : pkill OBS
 meh - backspace : pkill OBS; pmset displaysleepnow
 
 meh - a : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Audio Hijack") | .id');
-meh - s : yabai -m space --focus 1;                     # yabai -m window --focus (yabai -m query --windows |jq '.[] | select (.app  == "iTerm2") | .id');
 meh - d : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Discord") | .id');
 
 meh - m : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Spotify") | .id');
 meh - e : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Spark Desktop") | .id');
+
+meh - w : yabai -m window --focus $(yabai -m query --windows | jq -r '.[] | select(.app == "Safari" and (.title | strings | test("personal —.*"))) | .id')
 
 # open common folders
 meh - g : ~/scripts/github-safari-action
