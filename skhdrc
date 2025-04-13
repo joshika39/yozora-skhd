@@ -5,6 +5,8 @@ alt - t : yabai -m window --toggle float
 
 alt - d : yabai -m window --toggle zoom-parent
 alt - f : yabai -m window --toggle zoom-fullscreen
+alt - m : yabai -m window --minimize
+alt + shift - m : yabai -m window --focus
 
 alt - x : yabai -m window --close
 
