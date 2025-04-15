@@ -42,6 +42,9 @@ alt + ctrl - j : yabai -m window --warp south
 alt + ctrl - k : yabai -m window --warp north
 alt + ctrl - l : yabai -m window --warp east
 
+cmd + shift - h : yabai -m window --space prev --follow
+cmd + shift - l : yabai -m window --space next
+
 # send window to monitor and follow focus
 alt - 1 : yabai -m window --display 1
 alt - 2 : yabai -m window --display 2
