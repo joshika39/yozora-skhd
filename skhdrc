@@ -63,7 +63,7 @@ meh - backspace : pkill OBS; pmset displaysleepnow
 meh - a : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Audio Hijack") | .id');
 meh - d : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Discord") | .id');
 
-meh - m : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Spotify") | .id');
+meh - m : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Spotify" or .app == "Music") | .id');
 meh - e : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Spark Desktop") | .id');
 
 meh - w : yabai -m window --focus $(yabai -m query --windows | jq -r '.[] | select(.app == "Safari" and (.title | strings | test("personal —.*"))) | .id')
