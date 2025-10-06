@@ -64,7 +64,7 @@ meh - a : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (
 meh - d : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Discord") | .id');
 
 meh - m : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Spotify" or .app == "Music" or .app == "ミュージック") | .id');
-meh - e : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Spark Desktop" or .app == "Mail") | .id');
+meh - e : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Spark Desktop" or .app == "Mail" or .app == "メール") | .id');
 
 meh - w : yabai -m window --focus $(yabai -m query --windows | jq -r '.[] | select(.app == "Safari" and (.title | strings | test("personal —.*"))) | .id')
 
