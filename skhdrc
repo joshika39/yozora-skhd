@@ -66,7 +66,9 @@ meh - d : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (
 meh - m : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Spotify" or .app == "Music" or .app == "ミュージック") | .id');
 meh - e : yabai -m window --focus $(yabai -m query --windows |jq '.[] | select (.app  == "Spark Desktop" or .app == "Mail" or .app == "メール") | .id');
 
-meh - w : yabai -m window --focus $(yabai -m query --windows | jq -r '.[] | select(.app == "Safari" and (.title | strings | test("personal —.*"))) | .id')
+meh - w : yabai -m window --focus $(yabai -m query --windows | jq -r '.[] | select(.app == "Safari" and (.title | strings | test("personal —.*"))) | .id');
+
+meh - o : yabai -m window --focus $(yabai -m query --windows | jq -r '.[] | select(.app == "OBS Studio") | .id');
 
 # open common folders
 meh - g : ~/scripts/github-safari-action
