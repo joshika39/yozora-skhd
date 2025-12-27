@@ -21,8 +21,8 @@ meh - k : yabai -m window --resize top:0:-5
 meh - l : yabai -m window --resize right:-5:0
 
 # focus display
-alt - i: yabai -m display --focus west
-alt - o: yabai -m display --focus east
+alt - i: yabai -m display --focus prev
+alt - o: yabai -m display --focus next
 
 # focus window
 alt - h : yabai -m window --focus west || yabai -m window --focus stack.prev || yabai -m window --focus stack.last
@@ -56,9 +56,9 @@ cmd + shift - h : yabai -m window --space prev --follow
 cmd + shift - l : yabai -m window --space next
 
 # send window to monitor and follow focus
-alt - 1 : yabai -m window --display 1
-alt - 2 : yabai -m window --display 2
-alt - 3 : yabai -m window --display 3
+alt - 1 : yabai -m window --display 1 --focus
+alt - 2 : yabai -m window --display 2 --focus
+alt - 3 : yabai -m window --display 3 --focus
 
 # general application and control hotkeys
 meh - tab : yabai -m space --focus recent
