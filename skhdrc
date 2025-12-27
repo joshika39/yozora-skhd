@@ -55,6 +55,9 @@ alt + ctrl - l : yabai -m window --warp east
 cmd + shift - h : yabai -m window --space prev --follow
 cmd + shift - l : yabai -m window --space next
 
+shift + ctrl - a : yabai -m window --move rel:-20:0
+shift + ctrl - s : yabai -m window --move rel:0:20
+
 # send window to monitor and follow focus
 alt - 1 : yabai -m window --display 1 --focus
 alt - 2 : yabai -m window --display 2 --focus
