@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
-id="$(yabai -m query --displays | jq -r '
+idx="$(yabai -m query --displays | jq -r '
   sort_by(.frame.x) as $d
   | ($d | map(."has-focus") | index(true)) as $i
   | ($d | length) as $n
-  | $d[((($i - 1) + $n) % $n)].id
+  | $d[((($i - 1) + $n) % $n)].index
 ')"
 
-[ -n "$id" ] && yabai -m display --focus "$id"
+[ -n "$idx" ] && yabai -m display --focus "$idx"
