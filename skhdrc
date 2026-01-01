@@ -21,8 +21,8 @@ meh - k : yabai -m window --resize top:0:-5
 meh - l : yabai -m window --resize right:-5:0
 
 # focus display
-alt - i: yabai -m display --focus prev
-alt - o: yabai -m display --focus next
+alt - i : ~/.config/skhd/scripts/focus-display-left.sh
+alt - o : ~/.config/skhd/scripts/focus-display-right.sh
 
 # focus window
 alt - h : yabai -m window --focus west || yabai -m window --focus stack.prev || yabai -m window --focus stack.last
