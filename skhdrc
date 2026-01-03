@@ -21,7 +21,9 @@ meh - k : yabai -m window --resize top:0:-5
 meh - l : yabai -m window --resize right:-5:0
 
 # focus display
-alt - i : ~/.config/skhd/scripts/focus-display-left.sh
+alt - y : ~/.config/skhd/scripts/focus-display-left.sh
+alt - u : ~/.config/skhd/scripts/focus-display-down.sh
+alt - i : ~/.config/skhd/scripts/focus-display-up.sh
 alt - o : ~/.config/skhd/scripts/focus-display-right.sh
 
 # focus window
